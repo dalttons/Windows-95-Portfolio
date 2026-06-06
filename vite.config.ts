@@ -7,18 +7,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // Si el módulo viene de node_modules, lo separamos
-          if (id.includes('node_modules')) {
-            // Aislamos el desastre de @react95/clippy en su propio archivo
-            if (id.includes('@react95/clippy')) {
-              return 'vendor-clippy';
-            }
-            // Agrupamos React y la gestión de estado
-            if (id.includes('react') || id.includes('zustand')) {
-              return 'vendor-core';
-            }
-            // El resto de dependencias
-            return 'vendor-others';
+          // Aislamos ÚNICAMENTE la carga masiva en Base64.
+          // Dejamos que el algoritmo nativo de Vite optimice y separe React y el resto de librerías.
+          if (id.includes('@react95/clippy')) {
+            return 'vendor-clippy';
           }
         }
       }
