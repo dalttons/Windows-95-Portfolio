@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import WindowBar from "./components/WindowBar";
 import { useAuth } from "./store/auth";
 import DesktopIcon from "./components/DesktopIcon";
-import { Video } from "@react95/core";
 
 import { Amovie2, Joy102, Wordpad, Mail, Folder, FileText, Computer } from "@react95/icons";
 
